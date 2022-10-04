@@ -1,0 +1,1752 @@
+basePath: /api/v1
+definitions:
+  DTO.PaginateResponse:
+    properties:
+      count:
+        type: integer
+      data: {}
+    type: object
+  DTO.QuestionCreateRequest:
+    properties:
+      correctAnswer:
+        type: string
+      groupId:
+        type: string
+      q_number:
+        type: integer
+      questionType:
+        type: integer
+      testComponent:
+        type: integer
+    type: object
+  DTO.QuestionCreateResponse:
+    properties:
+      correctAnswer:
+        type: string
+      createdAt:
+        type: string
+      id:
+        type: string
+      q_number:
+        type: integer
+      statId:
+        type: string
+      statistic:
+        $ref: '#/definitions/DTO.QuestionStatisticResponse'
+      t_answer:
+        type: integer
+      t_correct_answer:
+        type: integer
+      testComponent:
+        type: string
+    type: object
+  DTO.QuestionGroupCreateRequest:
+    properties:
+      SpeakingTopic:
+        $ref: '#/definitions/models.QuestionGroupSpeaking'
+      componentType:
+        type: integer
+      description:
+        type: string
+      identifyingInformation:
+        items:
+          $ref: '#/definitions/models.QuestionGroupIdentifyingInformation'
+        type: array
+      map:
+        $ref: '#/definitions/models.QuestionGroupMap'
+      multipleChoice:
+        items:
+          $ref: '#/definitions/models.QuestionGroupMultipleChoice'
+        type: array
+      noteCompletion:
+        $ref: '#/definitions/models.QuestionGroupNoteCompletion'
+      q_end:
+        type: integer
+      q_start:
+        type: integer
+      sectionId:
+        type: string
+      title:
+        type: string
+      writingTopic:
+        $ref: '#/definitions/models.QuestionGroupWriting'
+    type: object
+  DTO.QuestionGroupCreateResponse:
+    properties:
+      SpeakingTopic:
+        $ref: '#/definitions/models.QuestionGroupSpeaking'
+      componentType:
+        type: string
+      createdAt:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      identifyingInformation:
+        items:
+          $ref: '#/definitions/models.QuestionGroupIdentifyingInformation'
+        type: array
+      map:
+        $ref: '#/definitions/models.QuestionGroupMap'
+      multipleChoice:
+        items:
+          $ref: '#/definitions/models.QuestionGroupMultipleChoice'
+        type: array
+      noteCompletion:
+        $ref: '#/definitions/models.QuestionGroupNoteCompletion'
+      title:
+        type: string
+      writingTopic:
+        $ref: '#/definitions/models.QuestionGroupWriting'
+    type: object
+  DTO.QuestionGroupResponse:
+    properties:
+      SpeakingTopic:
+        $ref: '#/definitions/models.QuestionGroupSpeaking'
+      componentType:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      identifyingInformation:
+        items:
+          $ref: '#/definitions/models.QuestionGroupIdentifyingInformation'
+        type: array
+      map:
+        $ref: '#/definitions/models.QuestionGroupMap'
+      multipleChoice:
+        items:
+          $ref: '#/definitions/models.QuestionGroupMultipleChoice'
+        type: array
+      noteCompletion:
+        $ref: '#/definitions/models.QuestionGroupNoteCompletion'
+      q_end:
+        type: integer
+      q_start:
+        type: integer
+      questions:
+        items:
+          $ref: '#/definitions/DTO.QuestionWithoutAnswerResponse'
+        type: array
+      title:
+        type: string
+      writingTopic:
+        $ref: '#/definitions/models.QuestionGroupWriting'
+    type: object
+  DTO.QuestionGroupUpdateRequest:
+    properties:
+      SpeakingTopic:
+        $ref: '#/definitions/models.QuestionGroupSpeaking'
+      componentType:
+        type: integer
+      description:
+        type: string
+      id:
+        type: string
+      identifyingInformation:
+        items:
+          $ref: '#/definitions/models.QuestionGroupIdentifyingInformation'
+        type: array
+      map:
+        $ref: '#/definitions/models.QuestionGroupMap'
+      multipleChoice:
+        items:
+          $ref: '#/definitions/models.QuestionGroupMultipleChoice'
+        type: array
+      noteCompletion:
+        $ref: '#/definitions/models.QuestionGroupNoteCompletion'
+      q_end:
+        type: integer
+      q_start:
+        type: integer
+      title:
+        type: string
+      writingTopic:
+        $ref: '#/definitions/models.QuestionGroupWriting'
+    type: object
+  DTO.QuestionGroupUpdateResponse:
+    properties:
+      SpeakingTopic:
+        $ref: '#/definitions/models.QuestionGroupSpeaking'
+      componentType:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      identifyingInformation:
+        items:
+          $ref: '#/definitions/models.QuestionGroupIdentifyingInformation'
+        type: array
+      map:
+        $ref: '#/definitions/models.QuestionGroupMap'
+      multipleChoice:
+        items:
+          $ref: '#/definitions/models.QuestionGroupMultipleChoice'
+        type: array
+      noteCompletion:
+        $ref: '#/definitions/models.QuestionGroupNoteCompletion'
+      q_end:
+        type: integer
+      q_start:
+        type: integer
+      title:
+        type: string
+      updateAt:
+        type: string
+      writingTopic:
+        $ref: '#/definitions/models.QuestionGroupWriting'
+    type: object
+  DTO.QuestionResponse:
+    properties:
+      correctAnswer:
+        type: string
+      id:
+        type: string
+      q_number:
+        type: integer
+      statistic:
+        $ref: '#/definitions/DTO.QuestionStatisticResponse'
+    type: object
+  DTO.QuestionStatisticResponse:
+    properties:
+      id:
+        type: string
+      questionType:
+        type: string
+      t_answer:
+        type: integer
+      t_correctAnswer:
+        type: integer
+    type: object
+  DTO.QuestionUpdateRequest:
+    properties:
+      correctAnswer:
+        type: string
+      id:
+        type: string
+      q_number:
+        type: integer
+      testComponent:
+        type: integer
+    type: object
+  DTO.QuestionUpdateResponse:
+    properties:
+      correctAnswer:
+        type: string
+      id:
+        type: string
+      q_number:
+        type: integer
+      updateAt:
+        type: string
+    type: object
+  DTO.QuestionWithUserAnswerResponse:
+    properties:
+      correctAnswer:
+        type: string
+      id:
+        type: string
+      q_number:
+        type: integer
+      statistic:
+        $ref: '#/definitions/DTO.QuestionStatisticResponse'
+      userAnswer:
+        $ref: '#/definitions/DTO.UserAnswerResponse'
+    type: object
+  DTO.QuestionWithoutAnswerResponse:
+    properties:
+      id:
+        type: string
+      q_number:
+        type: integer
+    type: object
+  DTO.SectionCreateRequest:
+    properties:
+      componentType:
+        type: integer
+      description:
+        type: string
+      q_end:
+        type: integer
+      q_start:
+        type: integer
+      sectionListening:
+        $ref: '#/definitions/models.SectionListening'
+      sectionReading:
+        $ref: '#/definitions/models.SectionReading'
+      sectionSpeaking:
+        $ref: '#/definitions/models.SectionSpeaking'
+      sectionWriting:
+        $ref: '#/definitions/models.SectionWriting'
+      testId:
+        type: string
+      title:
+        type: string
+      totalSectionTime:
+        type: integer
+    type: object
+  DTO.SectionCreateResponse:
+    properties:
+      componentType:
+        type: string
+      createdAt:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      sectionListening:
+        $ref: '#/definitions/models.SectionListening'
+      sectionReading:
+        $ref: '#/definitions/models.SectionReading'
+      sectionSpeaking:
+        $ref: '#/definitions/models.SectionSpeaking'
+      sectionWriting:
+        $ref: '#/definitions/models.SectionWriting'
+      title:
+        type: string
+    type: object
+  DTO.SectionResponse:
+    properties:
+      componentType:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      q_end:
+        type: integer
+      q_start:
+        type: integer
+      questionGroups:
+        items:
+          $ref: '#/definitions/DTO.QuestionGroupResponse'
+        type: array
+      sectionListening:
+        $ref: '#/definitions/models.SectionListening'
+      sectionReading:
+        $ref: '#/definitions/models.SectionReading'
+      sectionSpeaking:
+        $ref: '#/definitions/models.SectionSpeaking'
+      sectionWriting:
+        $ref: '#/definitions/models.SectionWriting'
+      title:
+        type: string
+      totalSectionTime:
+        type: integer
+    type: object
+  DTO.SectionUpdateRequest:
+    properties:
+      componentType:
+        type: integer
+      description:
+        type: string
+      id:
+        type: string
+      q_end:
+        type: integer
+      q_start:
+        type: integer
+      sectionListening:
+        $ref: '#/definitions/models.SectionListening'
+      sectionReading:
+        $ref: '#/definitions/models.SectionReading'
+      sectionSpeaking:
+        $ref: '#/definitions/models.SectionSpeaking'
+      sectionWriting:
+        $ref: '#/definitions/models.SectionWriting'
+      title:
+        type: string
+      totalSectionTime:
+        type: integer
+    type: object
+  DTO.SectionUpdateResponse:
+    properties:
+      componentType:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      sectionListening:
+        $ref: '#/definitions/models.SectionListening'
+      sectionReading:
+        $ref: '#/definitions/models.SectionReading'
+      sectionSpeaking:
+        $ref: '#/definitions/models.SectionSpeaking'
+      sectionWriting:
+        $ref: '#/definitions/models.SectionWriting'
+      title:
+        type: string
+      updateAt:
+        type: string
+    type: object
+  DTO.TestCreateRequest:
+    properties:
+      description:
+        type: string
+      detail:
+        $ref: '#/definitions/models.TestDetail'
+      module:
+        type: integer
+      name:
+        type: string
+      testDate:
+        type: integer
+      totalTestTime:
+        type: integer
+    type: object
+  DTO.TestCreateResponse:
+    properties:
+      createdAt:
+        type: string
+      description:
+        type: string
+      detail:
+        $ref: '#/definitions/models.TestDetail'
+      id:
+        type: string
+      module:
+        type: string
+      name:
+        type: string
+      testDate:
+        type: string
+    type: object
+  DTO.TestResponse:
+    properties:
+      description:
+        type: string
+      detail:
+        $ref: '#/definitions/models.TestDetail'
+      id:
+        type: string
+      module:
+        type: string
+      name:
+        type: string
+      sections:
+        items:
+          $ref: '#/definitions/DTO.SectionResponse'
+        type: array
+      testDate:
+        type: string
+      totalTestTime:
+        type: integer
+    type: object
+  DTO.TestUpdateRequest:
+    properties:
+      description:
+        type: string
+      detail:
+        $ref: '#/definitions/models.TestDetail'
+      id:
+        type: string
+      module:
+        type: integer
+      name:
+        type: string
+      testDate:
+        type: integer
+      totalTestTime:
+        type: integer
+    type: object
+  DTO.TestUpdateResponse:
+    properties:
+      description:
+        type: string
+      detail:
+        $ref: '#/definitions/models.TestDetail'
+      id:
+        type: string
+      module:
+        type: string
+      name:
+        type: string
+      testDate:
+        type: string
+      updateAt:
+        type: string
+    type: object
+  DTO.UserAnswerCreateRequest:
+    properties:
+      answer:
+        type: string
+      questionId:
+        type: string
+      userTestId:
+        type: string
+    type: object
+  DTO.UserAnswerCreateResponse:
+    properties:
+      answer:
+        type: string
+      createdAt:
+        type: string
+      id:
+        type: string
+      questionId:
+        type: string
+      userTestId:
+        type: string
+    type: object
+  DTO.UserAnswerResponse:
+    properties:
+      answer:
+        type: string
+      id:
+        type: string
+      markerComment:
+        type: string
+      markerId:
+        type: string
+      markerScore:
+        type: number
+      questionId:
+        type: string
+      userTestId:
+        type: string
+    type: object
+  DTO.UserAnswerUpdateAnswerRequest:
+    properties:
+      answer:
+        type: string
+      id:
+        type: string
+    type: object
+  DTO.UserAnswerUpdateAnswerResponse:
+    properties:
+      answer:
+        type: string
+      id:
+        type: string
+      questionId:
+        type: string
+      updateAt:
+        type: string
+      userTestId:
+        type: string
+    type: object
+  DTO.UserAnswerUpdateMarkerRequest:
+    properties:
+      id:
+        type: string
+      markerComment:
+        type: string
+      markerId:
+        type: string
+      markerScore:
+        type: number
+    type: object
+  DTO.UserAnswerUpdateMarkerResponse:
+    properties:
+      answer:
+        type: string
+      id:
+        type: string
+      markerComment:
+        type: string
+      markerId:
+        type: string
+      markerScore:
+        type: number
+      questionId:
+        type: string
+      updateAt:
+        type: string
+      userTestId:
+        type: string
+    type: object
+  DTO.UserSignUpOrLoginUserResponse:
+    properties:
+      alias:
+        type: string
+      email:
+        type: string
+      subscriptionExpirationMs:
+        type: integer
+      subscriptionState:
+        type: string
+      userId:
+        type: string
+    type: object
+  DTO.UserSkillsAvgStat:
+    properties:
+      listeningOverall:
+        type: number
+      readingOverall:
+        type: number
+      speakingOverall:
+        type: number
+      writingOverall:
+        type: number
+    type: object
+  DTO.UserTestCreateRequest:
+    properties:
+      testDate:
+        type: integer
+      testId:
+        type: string
+      testType:
+        type: integer
+      userId:
+        type: string
+    type: object
+  DTO.UserTestCreateResponse:
+    properties:
+      createdAt:
+        type: string
+      id:
+        type: string
+      testDate:
+        type: string
+      testDuration:
+        type: integer
+      testId:
+        type: string
+      testType:
+        type: string
+      userId:
+        type: string
+    type: object
+  DTO.UserTestResponse:
+    properties:
+      id:
+        type: string
+      testDate:
+        type: string
+      testDuration:
+        type: integer
+      testId:
+        type: string
+      testType:
+        type: string
+      userAnswers:
+        items:
+          $ref: '#/definitions/DTO.UserAnswerResponse'
+        type: array
+      userId:
+        type: string
+    type: object
+  DTO.UserTestResultResponse:
+    properties:
+      answerSheet:
+        items:
+          $ref: '#/definitions/DTO.QuestionWithUserAnswerResponse'
+        type: array
+      id:
+        type: string
+      listeningScore:
+        type: number
+      overallScore:
+        type: number
+      readingScore:
+        type: number
+      speakingScore:
+        type: number
+      stat:
+        $ref: '#/definitions/DTO.UserTestStat'
+      testDate:
+        type: string
+      testDuration:
+        type: integer
+      testId:
+        type: string
+      testType:
+        type: string
+      userId:
+        type: string
+      writingScore:
+        type: number
+    type: object
+  DTO.UserTestStat:
+    properties:
+      average:
+        $ref: '#/definitions/DTO.UserSkillsAvgStat'
+      averageTotalSkill:
+        $ref: '#/definitions/DTO.UserSkillsAvgStat'
+      skill:
+        $ref: '#/definitions/models.TestSkillsStat'
+    type: object
+  models.ComponentDetail:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      time:
+        type: integer
+    type: object
+  models.QuestionGroupIdentifyingInformation:
+    properties:
+      q_number:
+        type: integer
+      title:
+        type: string
+    type: object
+  models.QuestionGroupMap:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/models.QuestionGroupMapItem'
+        type: array
+      mapUrl:
+        type: string
+    type: object
+  models.QuestionGroupMapItem:
+    properties:
+      q_number:
+        type: integer
+      title:
+        type: string
+    type: object
+  models.QuestionGroupMultipleChoice:
+    properties:
+      answers:
+        additionalProperties:
+          type: string
+        type: object
+      q_number:
+        type: integer
+      title:
+        type: string
+    type: object
+  models.QuestionGroupNoteCompletion:
+    properties:
+      note:
+        type: string
+    type: object
+  models.QuestionGroupSpeaking:
+    properties:
+      q_number:
+        type: integer
+      topic:
+        type: string
+    type: object
+  models.QuestionGroupWriting:
+    properties:
+      q_number:
+        type: integer
+      topic:
+        type: string
+    type: object
+  models.SectionListening:
+    properties:
+      mediaLengthMin:
+        type: integer
+      mediaURL:
+        type: string
+    type: object
+  models.SectionReading:
+    properties:
+      mainText:
+        type: string
+    type: object
+  models.SectionSpeaking:
+    properties:
+      audioUrl:
+        type: string
+    type: object
+  models.SectionWriting:
+    properties:
+      minimumWords:
+        type: integer
+    type: object
+  models.TestComponentStat:
+    properties:
+      count:
+        type: number
+      score:
+        type: number
+    type: object
+  models.TestDetail:
+    properties:
+      componentsDetail:
+        items:
+          $ref: '#/definitions/models.ComponentDetail'
+        type: array
+    type: object
+  models.TestSkillsStat:
+    properties:
+      listening:
+        items:
+          $ref: '#/definitions/models.TestComponentStat'
+        type: array
+      overall:
+        items:
+          $ref: '#/definitions/models.TestComponentStat'
+        type: array
+      reading:
+        items:
+          $ref: '#/definitions/models.TestComponentStat'
+        type: array
+      speaking:
+        items:
+          $ref: '#/definitions/models.TestComponentStat'
+        type: array
+      writing:
+        items:
+          $ref: '#/definitions/models.TestComponentStat'
+        type: array
+    type: object
+host: mel-api.go7.ir
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server celler server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /question:
+    post:
+      consumes:
+      - application/json
+      description: Create Question
+      parameters:
+      - description: Create Question
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.QuestionCreateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.QuestionCreateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Create Question
+      tags:
+      - Questions
+    put:
+      consumes:
+      - application/json
+      description: Update Question
+      parameters:
+      - description: Update Question
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.QuestionUpdateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.QuestionUpdateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Update Question
+      tags:
+      - Questions
+  /question-group:
+    post:
+      consumes:
+      - application/json
+      description: Create Question Group
+      parameters:
+      - description: Create Question Group
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.QuestionGroupCreateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.QuestionGroupCreateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Create Question-Group Group
+      tags:
+      - Question-Groups
+    put:
+      consumes:
+      - application/json
+      description: Update Question-Group
+      parameters:
+      - description: Update Question-Group
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.QuestionGroupUpdateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.QuestionGroupUpdateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Update Question-Group
+      tags:
+      - Question-Groups
+  /question-group/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Question-Group by id
+      parameters:
+      - description: Question-Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Question-Group by id
+      tags:
+      - Question-Groups
+    get:
+      consumes:
+      - application/json
+      description: Find Question-Group by id
+      parameters:
+      - description: Question-Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.QuestionGroupResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find Question-Group by id
+      tags:
+      - Question-Groups
+  /question-group/all:
+    get:
+      consumes:
+      - application/json
+      description: Find Group by Section id
+      parameters:
+      - description: section ID
+        in: query
+        name: section_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/DTO.QuestionGroupResponse'
+            type: array
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find Group by Section id
+      tags:
+      - Question-Groups
+  /question/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete question by id
+      parameters:
+      - description: Questions ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Delete question by id
+      tags:
+      - Questions
+    get:
+      consumes:
+      - application/json
+      description: Find Question by id
+      parameters:
+      - description: Question ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.QuestionResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find Question by id
+      tags:
+      - Questions
+  /question/all:
+    get:
+      consumes:
+      - application/json
+      description: Find Questions by group id
+      parameters:
+      - description: group ID
+        in: query
+        name: group_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/DTO.QuestionResponse'
+            type: array
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find Questions by group id
+      tags:
+      - Questions
+  /question/test/all:
+    get:
+      consumes:
+      - application/json
+      description: Find Questions by test id with statistic data
+      parameters:
+      - description: Test ID
+        in: query
+        name: test_id
+        required: true
+        type: string
+      - description: User Test ID
+        in: query
+        name: user_test_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/DTO.QuestionWithUserAnswerResponse'
+            type: array
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find Questions by test id with statistic data
+      tags:
+      - Questions
+  /section:
+    post:
+      consumes:
+      - application/json
+      description: Create Section
+      parameters:
+      - description: Create section
+        in: body
+        name: Section
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.SectionCreateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.SectionCreateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Create Section
+      tags:
+      - Sections
+    put:
+      consumes:
+      - application/json
+      description: Update Section
+      parameters:
+      - description: Update test
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.SectionUpdateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.SectionUpdateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Update Section
+      tags:
+      - Sections
+  /section/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Section by id
+      parameters:
+      - description: Section ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Section by id
+      tags:
+      - Sections
+    get:
+      consumes:
+      - application/json
+      description: Find Section by id
+      parameters:
+      - description: Section ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.SectionResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find Section by id
+      tags:
+      - Sections
+  /section/all:
+    get:
+      consumes:
+      - application/json
+      description: Find all Sections
+      parameters:
+      - description: section ID
+        in: query
+        name: test_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/DTO.SectionResponse'
+            type: array
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find All
+      tags:
+      - Sections
+  /test:
+    post:
+      consumes:
+      - application/json
+      description: Create Test
+      parameters:
+      - description: Create test
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.TestCreateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.TestCreateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Create Test
+      tags:
+      - Tests
+    put:
+      consumes:
+      - application/json
+      description: Update Test
+      parameters:
+      - description: Update test
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.TestUpdateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.TestUpdateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Update Test
+      tags:
+      - Tests
+  /test/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete test by id
+      parameters:
+      - description: Test ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Delete test by id
+      tags:
+      - Tests
+    get:
+      consumes:
+      - application/json
+      description: Find Test by id
+      parameters:
+      - description: Test ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.TestResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find Test by id
+      tags:
+      - Tests
+  /test/all:
+    get:
+      consumes:
+      - application/json
+      description: type of "data" field in response is array of "DTO.TestResponse"
+      parameters:
+      - description: search
+        in: query
+        name: search
+        type: string
+      - description: module:0 is ielts general
+        in: query
+        name: filter
+        type: string
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: page size
+        in: query
+        name: page_size
+        required: true
+        type: integer
+      - description: order by
+        in: query
+        name: order_by
+        type: string
+      - description: order direction
+        in: query
+        name: order_direction
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.PaginateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find All
+      tags:
+      - Tests
+  /test/full/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get test with sections and section's question groups
+      parameters:
+      - description: Test ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.TestResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Get test wih all detail
+      tags:
+      - Tests
+  /user:
+    get:
+      consumes:
+      - application/json
+      description: type of "data" field in response is array of "DTO.UserSignUpOrLoginUserResponse"
+      parameters:
+      - description: search
+        in: query
+        name: search
+        type: string
+      - description: filter
+        in: query
+        name: filter
+        type: string
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: page size
+        in: query
+        name: page_size
+        required: true
+        type: integer
+      - description: order by
+        in: query
+        name: order_by
+        type: string
+      - description: order direction
+        in: query
+        name: order_direction
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.PaginateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Get all user with pagination
+      tags:
+      - Users
+  /user-answer:
+    post:
+      consumes:
+      - application/json
+      description: Create user-answer
+      parameters:
+      - description: Create test
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.UserAnswerCreateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserAnswerCreateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Create user-answer
+      tags:
+      - User-answers
+  /user-answer/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete user-answer by id
+      parameters:
+      - description: user-answer ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Delete user-answer by id
+      tags:
+      - User-answers
+    get:
+      consumes:
+      - application/json
+      description: Find user-answer by id
+      parameters:
+      - description: User answer ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserAnswerResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find user-answer by id
+      tags:
+      - User-answers
+  /user-answer/all:
+    get:
+      consumes:
+      - application/json
+      description: Find user-answer by user test id
+      parameters:
+      - description: User Test ID
+        in: query
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/DTO.UserAnswerResponse'
+            type: array
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find user-answer by user test id
+      tags:
+      - User-answers
+  /user-answer/answer:
+    put:
+      consumes:
+      - application/json
+      description: Update User answer
+      parameters:
+      - description: Update User-Answer
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.UserAnswerUpdateAnswerRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserAnswerUpdateAnswerResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Update user answer
+      tags:
+      - User-answers
+  /user-answer/answer/speaking:
+    put:
+      consumes:
+      - application/json
+      description: Update speaking User answer
+      parameters:
+      - description: Update User-Answer
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.UserAnswerUpdateAnswerRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserAnswerUpdateAnswerResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Update speaking user answer
+      tags:
+      - User-answers
+  /user-answer/batch:
+    post:
+      consumes:
+      - application/json
+      description: BatchCreate user-answer
+      parameters:
+      - description: Create user-answer
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.UserAnswerCreateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/DTO.UserAnswerCreateResponse'
+            type: array
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: BatchCreate user-answer
+      tags:
+      - User-answers
+  /user-answer/marker:
+    put:
+      consumes:
+      - application/json
+      description: Update user answer score
+      parameters:
+      - description: Update User-Answer
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.UserAnswerUpdateMarkerRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserAnswerUpdateMarkerResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Update user answer score
+      tags:
+      - User-answers
+  /user-answer/speaking:
+    post:
+      consumes:
+      - application/json
+      description: Create speaking user-answer
+      parameters:
+      - description: Create test
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.UserAnswerCreateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserAnswerCreateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Create speaking user-answer
+      tags:
+      - User-answers
+  /user-test:
+    post:
+      consumes:
+      - application/json
+      description: Create user-test
+      parameters:
+      - description: Create test
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/DTO.UserTestCreateRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserTestCreateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Create user-test
+      tags:
+      - User-tests
+  /user-test/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete user-test by id
+      parameters:
+      - description: user-test ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Delete user-test by id
+      tags:
+      - User-tests
+    get:
+      consumes:
+      - application/json
+      description: Find user-test by id
+      parameters:
+      - description: user-test ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserTestResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find user-test by id
+      tags:
+      - User-tests
+  /user-test/all:
+    get:
+      consumes:
+      - application/json
+      description: type of "data" field in response is array of "DTO.UserTestResponse"
+      parameters:
+      - description: user-test ID
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: page size
+        in: query
+        name: page_size
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.PaginateResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Find all user's test with user id specification and pagination
+      tags:
+      - User-tests
+  /user-test/submit:
+    put:
+      consumes:
+      - application/json
+      description: Submit Test
+      parameters:
+      - description: Test ID
+        in: query
+        name: test_id
+        required: true
+        type: string
+      - description: User Test ID
+        in: query
+        name: user_test_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserTestResultResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Submit Test
+      tags:
+      - User-tests
+  /user/auth:
+    post:
+      consumes:
+      - application/json
+      description: Login or signup user with firebase token
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/DTO.UserSignUpOrLoginUserResponse'
+        "400":
+          description: error message detail
+      security:
+      - ApiKeyAuth: []
+      summary: Login or signup user
+      tags:
+      - Users
+schemes:
+- http
+- https
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

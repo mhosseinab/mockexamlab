@@ -1,0 +1,29 @@
+version: "3.4"
+services:
+  mockexam-api:
+    container_name: mockexam_api
+    build:
+      context: .
+      dockerfile: DockerFile
+    ports:
+      - 8080:8080
+    environment:
+      DB_DSN: "host=app-db user=mockexam password=123456 dbname=MockExam port=5432 sslmode=disable"
+    depends_on:
+      - app-db
+    volumes:
+      - ./vendor:/vendor
+  app-db:
+    container_name: mockexam_db
+    image: postgres:13-alpine
+    restart: always
+    env_file:
+      - ./.env.prod
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data/
+      - ./docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -q -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 1s
+      retries: 30

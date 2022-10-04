@@ -1,0 +1,15 @@
+FROM golang:alpine AS builder
+WORKDIR /app
+COPY . .
+ENV GO111MODULE=on
+
+RUN go mod vendor
+RUN go build -o main .
+
+FROM golang:alpine
+WORKDIR /app
+COPY ./mock-exam-20921-firebase-adminsdk-jgdbs-37c535e3bf.json /app/mock-exam-20921-firebase-adminsdk-jgdbs-37c535e3bf.json
+COPY --from=builder ./app/main /app/
+ENV DB_DSN="host=host.docker.internal user=postgres password=Ali1230272126 dbname=MockExam port=5432 sslmode=disable TimeZone=Asia/Tehran"
+
+ENTRYPOINT [ "./main", "api"]
