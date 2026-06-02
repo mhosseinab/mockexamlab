@@ -8,7 +8,7 @@ const Footer = () => {
         <div className={style.footer}>
             <ul className={style.address}>
                 <div className={style.logo}>
-                    <Image src="/img/logo.png" alt="logo" layout="fill"/>
+                    <Image src="/img/logo.png" alt="logo" fill/>
                 </div>
                 <li>
                     <h6>

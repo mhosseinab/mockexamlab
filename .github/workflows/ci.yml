@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      frontend: ${{ steps.filter.outputs.frontend }}
+      golang: ${{ steps.filter.outputs.golang }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            frontend:
+              - 'frontend/**'
+            golang:
+              - 'services/api/**'
+
+  typescript:
+    needs: detect
+    if: needs.detect.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm --dir frontend lint
+      - run: pnpm --dir frontend exec tsc --noEmit
+      - run: pnpm --dir frontend test --passWithNoTests
+
+  golang:
+    needs: detect
+    if: needs.detect.outputs.golang == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: services/api/go.mod
+      - name: Test
+        working-directory: services/api
+        run: GOWORK=off go test ./... -race
+      - name: Lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          working-directory: services/api
+          args: --timeout=5m

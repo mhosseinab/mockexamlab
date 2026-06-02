@@ -1,3 +1,5 @@
+'use client'
+
 import DashboardLayout from "components/dashboard/DashboardLayout";
 import ExamTime from "components/dashboard/stats/ExamTime";
 import DashboardHeader from "components/ui/DashboardHeader";
@@ -34,9 +36,9 @@ const StatsContainer = () => {
         <h3>Your {currentTab} grades</h3>
         <div className={style.img}>
           {currentTab == "exam" ? (
-            <Image src="/img/dashboard/chart.png" alt="chart" layout="fill" />
+            <Image src="/img/dashboard/chart.png" alt="chart" fill />
           ) : (
-            <Image src="/img/dashboard/chart.png" alt="chart" layout="fill" />
+            <Image src="/img/dashboard/chart.png" alt="chart" fill />
           )}
         </div>
       </div>

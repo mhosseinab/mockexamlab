@@ -16,8 +16,8 @@ const Card = () => {
           <h2>$ 430.90</h2>
         </div>
         <div className={style.logo}>
-          <Image src="/img/icons/right.svg" alt="" layout="fill" />
-          <Image src="/img/icons/left.svg" alt="" layout="fill" />
+          <Image src="/img/icons/right.svg" alt="" fill />
+          <Image src="/img/icons/left.svg" alt="" fill />
         </div>
       </div>
       <div className={style.bottom}>

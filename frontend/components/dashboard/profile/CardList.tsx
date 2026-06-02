@@ -15,15 +15,13 @@ const CardList: FC<Props> = ({ items, link, title }) => {
     <div className={style.card__list}>
       <div className={style.header}>
         <h1>{title}</h1>
-        <Link href={link}>
-          <a>View All</a>
-        </Link>
+        <Link href={link}>View All</Link>
       </div>
       <div className={style.cards}>
         {items.map((item, index) => (
           <div className={style.card} key={index}>
             <div className={style.img}>
-              <Image src={item.image} alt={item.title} layout="fill" />
+              <Image src={item.image} alt={item.title} fill />
             </div>
             <div
               className={style.details}
@@ -35,9 +33,7 @@ const CardList: FC<Props> = ({ items, link, title }) => {
             >
               <h6>{item.title}</h6>
               {item.link && (
-                <Link href={item.link}>
-                  <a>More Detail</a>
-                </Link>
+                <Link href={item.link}>More Detail</Link>
               )}
               {item.price && (
                 <h6 style={{ color: "#369926" }}>{item.price}$</h6>

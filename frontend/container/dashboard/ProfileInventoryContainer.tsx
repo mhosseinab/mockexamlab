@@ -1,3 +1,5 @@
+'use client'
+
 import DashboardLayout from "components/dashboard/DashboardLayout";
 import CardList from "components/dashboard/profile/CardList";
 import Header from "components/dashboard/profile/Header";

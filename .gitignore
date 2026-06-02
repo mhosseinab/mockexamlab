@@ -1,0 +1,24 @@
+# Go
+go.work
+go.work.sum
+services/*/bin/
+
+# Node
+node_modules/
+.pnpm-store/
+
+# Next.js
+frontend/.next/
+frontend/out/
+
+# Task
+.task/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*.local

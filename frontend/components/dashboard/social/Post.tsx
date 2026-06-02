@@ -15,7 +15,7 @@ const Post: FC<Props> = ({ description, image, link, title }) => {
     <Link href={link}>
       <div className={style.post__container}>
         <div className={style.profile}>
-          <Image src={image} alt={title} layout="fill" />
+          <Image src={image} alt={title} fill />
           <div className={style.status} />
         </div>
         <div className={style.details}>

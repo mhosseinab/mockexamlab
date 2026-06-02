@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  dev:
+    desc: Start the Next.js dev server
+    cmds:
+      - pnpm --dir frontend dev
+
+  build:
+    desc: Build the Next.js app
+    cmds:
+      - pnpm --dir frontend build
+
+  test:
+    desc: Run frontend tests
+    cmds:
+      - pnpm --dir frontend test
+
+  lint:
+    desc: Lint frontend code
+    cmds:
+      - pnpm --dir frontend lint
+
+  typecheck:
+    desc: Type-check frontend code
+    cmds:
+      - pnpm --dir frontend exec tsc --noEmit

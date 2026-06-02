@@ -1,3 +1,5 @@
+'use client'
+
 import DashboardLayout from "components/dashboard/DashboardLayout";
 import Search from "components/dashboard/exam/Search";
 import CardList from "components/dashboard/profile/CardList";

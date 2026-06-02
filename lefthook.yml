@@ -1,0 +1,31 @@
+glob_matcher: doublestar
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: go-fmt
+      glob: '**/*.go'
+      run: |
+        FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.go$' || true)
+        if [ -n "$FILES" ]; then
+          UNFORMATTED=$(gofmt -l $FILES)
+          if [ -n "$UNFORMATTED" ]; then
+            echo "Unformatted Go files: $UNFORMATTED"
+            exit 1
+          fi
+        fi
+    - name: ts-lint
+      glob: 'frontend/**/*.{ts,tsx}'
+      run: pnpm --dir frontend lint
+
+pre-push:
+  jobs:
+    - name: go-lint
+      glob: 'services/api/**/*.go'
+      run: cd services/api && GOWORK=off golangci-lint run ./...
+    - name: go-mod-tidy
+      glob: 'services/api/go.{mod,sum}'
+      run: cd services/api && GOWORK=off go mod tidy && git diff --exit-code go.mod go.sum
+    - name: ts-typecheck
+      glob: 'frontend/**/*.{ts,tsx}'
+      run: pnpm --dir frontend exec tsc --noEmit

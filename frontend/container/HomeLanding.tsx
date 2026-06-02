@@ -1,3 +1,5 @@
+'use client'
+
 import HomeExam from "components/home/HomeExam";
 import HomeExamDetails from "components/home/HomeExamDetails";
 import HomeHeader from "components/home/HomeHeader";

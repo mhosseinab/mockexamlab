@@ -1,3 +1,5 @@
+'use client'
+
 import DashboardLayout from "components/dashboard/DashboardLayout";
 import AddCard from "components/dashboard/financial/AddCard";
 import Card from "components/dashboard/financial/Card";

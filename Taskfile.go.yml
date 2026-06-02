@@ -1,0 +1,31 @@
+version: '3'
+
+tasks:
+  init:
+    desc: Initialize go.work if not present
+    status:
+      - test -f go.work
+    cmds:
+      - go work init
+      - go work use ./services/api
+
+  build:
+    desc: Build the Go API
+    deps: [init]
+    dir: services/api
+    cmds:
+      - GOWORK=off go build ./...
+
+  test:
+    desc: Run Go tests with race detector
+    deps: [init]
+    dir: services/api
+    cmds:
+      - GOWORK=off go test ./... -race
+
+  lint:
+    desc: Lint Go code
+    deps: [init]
+    dir: services/api
+    cmds:
+      - GOWORK=off golangci-lint run ./...

@@ -1,18 +1,20 @@
-import React, { FC } from "react";
+'use client'
 
-import style from "styles/exams/questions.module.scss";
-import { useRouter } from "next/router";
-import TestHeader from "./TestHeader";
+import React, { FC } from 'react'
+import style from 'styles/exams/questions.module.scss'
+import { useRouter, usePathname } from 'next/navigation'
 
 interface Props {
-  title: string;
-  time: string;
-  name: string;
-  section: string;
+  title: string
+  time: string
+  name: string
+  section: string
 }
 
 const Instruction: FC<Props> = ({ title, time, name, section }) => {
-  const { pathname, push } = useRouter();
+  const router = useRouter()
+  const pathname = usePathname()
+
   return (
     <div className={style.exam__intro}>
       <div className={style.title}>
@@ -35,19 +37,12 @@ const Instruction: FC<Props> = ({ title, time, name, section }) => {
       </div>
       <button
         className={style.start}
-        onClick={() => {
-          push({
-            pathname,
-            query: {
-              section: section,
-              level: "questions",
-            },
-          });
-        }}
+        onClick={() => router.push(`${pathname}?section=${section}&level=questions`)}
       >
         Start test
       </button>
     </div>
-  );
-};
-export default Instruction;
+  )
+}
+
+export default Instruction

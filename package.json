@@ -1,0 +1,10 @@
+{
+  "name": "mockexamlab",
+  "private": true,
+  "scripts": {
+    "prepare": "lefthook install"
+  },
+  "devDependencies": {
+    "lefthook": "^1.11.0"
+  }
+}

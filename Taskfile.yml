@@ -1,0 +1,32 @@
+version: '3'
+
+includes:
+  go: ./Taskfile.go.yml
+  ts: ./Taskfile.ts.yml
+
+tasks:
+  doctor:
+    desc: Verify all required tools are installed
+    cmds:
+      - node --version
+      - pnpm --version
+      - go version
+      - task --version
+
+  setup:
+    desc: Install all dependencies and initialize workspaces
+    cmds:
+      - pnpm install
+      - task go:init
+
+  build:all:
+    desc: Build all services
+    deps: [go:build, ts:build]
+
+  test:all:
+    desc: Run all tests
+    deps: [go:test, ts:test]
+
+  lint:all:
+    desc: Lint all code
+    deps: [go:lint, ts:lint]

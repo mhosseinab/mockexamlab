@@ -24,7 +24,6 @@ const Header = () => {
                             Take your <br/> IELTS
                         </h1>
                         <Link href="/">
-                            <a>
                                 Today
                                 <svg
                                     width="24"
@@ -48,14 +47,13 @@ const Header = () => {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                            </a>
                         </Link>
                     </div>
                 </div>
                 <div className={style.card__two}>
                     <div className={style.icon}>
                         <div className={style.img}>
-                            <Image src="/img/dashboard/hat.png" alt="icon" layout="fill"/>
+                            <Image src="/img/dashboard/hat.png" alt="icon" fill/>
                         </div>
                     </div>
                     <div className={style.details}>
@@ -80,8 +78,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <Link href="/">
-                <a className={style.check}>
+            <Link href="/" className={style.check}>
                     Check all the routes
                     <svg
                         width="24"
@@ -105,7 +102,6 @@ const Header = () => {
                             strokeLinejoin="round"
                         />
                     </svg>
-                </a>
             </Link>
         </div>
     );
