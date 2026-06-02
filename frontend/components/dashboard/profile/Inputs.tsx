@@ -18,13 +18,13 @@ const Inputs = () => {
       <CustomInput
         Icon={() => <Image src='/img/icons/person.svg' alt='image' width={10} height={14} />}
         setValue={setName}
-        value={userName}
+        value={userName ?? ''}
         title='Full Name'
       />
       <CustomInput
         Icon={() => <Image src='/img/icons/email.svg' alt='image' width={10} height={14} />}
         setValue={setEmail}
-        value={email}
+        value={email ?? ''}
         title='Email'
       />
       <CustomInput

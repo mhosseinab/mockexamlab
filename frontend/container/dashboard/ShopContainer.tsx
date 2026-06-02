@@ -14,7 +14,7 @@ const ShopContainer = () => {
   return (
     <DashboardLayout>
       <DashboardHeader title="Shop" />
-      <Header image="/img/dashboard/trophy.png" link="/dashboard/shop/books" title="Lets get" br="premium" height="208" width="208" />
+      <Header image="/img/dashboard/trophy.png" link="/dashboard/shop/books" title="Lets get" br="premium" height={208} width={208} />
       <Search setValue={setSearch} value={search} />
       <Routing category={category} setCategory={setCategory} />
       <CardList items={categoryList} title="Products" link="" />

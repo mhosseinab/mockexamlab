@@ -5,7 +5,7 @@ interface Props {
 }
 
 const AudioPlayer: FC<Props> = ({ isPlaying }) => {
-  const playRef = useRef<any>();
+  const playRef = useRef<any>(null);
   useEffect(() => {
     console.log(isPlaying);
     if (isPlaying) {

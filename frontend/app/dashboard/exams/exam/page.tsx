@@ -19,6 +19,7 @@ function ExamContent() {
     if (!test.id) {
       getTest(createdTest.testId || (getCookie('testId') as string))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [test.id, createdTest.testId])
 
   if (!test.id) return <Spinner />

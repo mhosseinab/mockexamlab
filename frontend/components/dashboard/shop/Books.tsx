@@ -12,7 +12,7 @@ const BooksContainer = () => {
   return (
     <DashboardLayout>
       <DashboardHeader title="Books" />
-      <Header image="/img/dashboard/books.png" link="/" title="Check Latest" width="164" height="164" />
+      <Header image="/img/dashboard/books.png" link="/" title="Check Latest" width={164} height={164} />
       <Search setValue={setSearch} value={search} />
       <CardList items={categoryList} title="Products" link="" />
     </DashboardLayout>

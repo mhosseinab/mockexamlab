@@ -1,2 +1,9 @@
 packages:
   - 'frontend'
+allowBuilds:
+  '@firebase/util': true
+  '@parcel/watcher': true
+  lefthook: true
+  protobufjs: true
+  sharp: true
+  unrs-resolver: true

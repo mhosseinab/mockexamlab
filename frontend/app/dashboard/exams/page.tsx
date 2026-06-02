@@ -15,6 +15,7 @@ export default function ExamsPage() {
     setLoading(true)
     if (token) getAllExams(token)
     setTimeout(() => { setLoading(false) }, 5000)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return !loading ? <ExamContainer /> : <Spinner />

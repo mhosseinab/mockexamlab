@@ -10,7 +10,7 @@ interface Test {
   name: string
   description: string
   testDate: string
-  section: string
+  module: string
 }
 
 interface CreatedTest {

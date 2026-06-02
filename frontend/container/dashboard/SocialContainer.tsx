@@ -17,11 +17,11 @@ const SocialContainer = () => {
     <DashboardLayout>
       <DashboardHeader title="Stacks" />
       <Header
-        height="226"
+        height={226}
         image="/img/dashboard/school.png"
         link="/"
         title="Ask"
-        width="226"
+        width={226}
         br="Anything"
       />
       <Search setValue={setSearch} value={search} />
